@@ -1,0 +1,10 @@
+{
+  "ignore": [
+    "node_modules"
+  ],
+    "watch": [
+        "."
+      ],
+      "exec": " ts-node ./apis/app.ts > delme.txt",
+      "ext": "ts"
+}
