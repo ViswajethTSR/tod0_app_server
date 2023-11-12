@@ -5,6 +5,6 @@
     "watch": [
         "."
       ],
-      "exec": " ts-node ./apis/app.ts > delme.txt",
+      "exec": " ts-node app.ts > delme.txt",
       "ext": "ts"
 }
