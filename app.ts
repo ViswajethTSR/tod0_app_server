@@ -10,7 +10,8 @@ import './apis/header';
 import './apis/create_todo';
 import './apis/delete_todo';
 import './apis/read_todo';
-import './apis/update_todo';
+import './apis/update_todo_state';
+import './apis/update_title';
 
 
 
