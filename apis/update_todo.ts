@@ -4,12 +4,12 @@ import { Request, Response } from 'express';
 
 
 // PUT (update) a todo
-app.put('/update_todos/:id', async (req: Request, res: Response) => {
-  const { id } = req.params;
+app.put('/update_todos/:title', async (req: Request, res: Response) => {
+  const { title } = req.params;
   const { completed } = req.body;
   try {
-    const updatedTodo = await Todo.findByIdAndUpdate(
-      id,
+    const updatedTodo = await Todo.findOneAndUpdate(
+      {title},
       { completed },
       { new: true }
     );
