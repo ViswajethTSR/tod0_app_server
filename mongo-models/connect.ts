@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 
-const mongoURI = 'mongodb://fleettrack:password@localhost:27017/datadb';
+const mongoURI = 'mongodb://fleettrack:password@64.227.166.14:27017/datadb';
 const mongoOptions:object= {
     useNewUrlParser: true,
     useUnifiedTopology: true,
