@@ -1,5 +1,5 @@
-//this is the websocket that send the lat and lng of random location
-
+//This is the websocket that send the lat and lng of random location
+//This is opened in a seperate port in the server
 import express from 'express';
 import http from 'http';
 import WebSocket from 'ws';
