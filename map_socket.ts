@@ -9,12 +9,13 @@ const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 let index = 0;
 
-wss.on('connection', function connection(ws) {
-   
+wss.on('connection', (ws) =>{
+    // Reset index to 0 when a new client connects
     index = 0;
-    console.log(`A new Client ${index++} connected`);
+    console.log(`A new Client connected`);
     ws.send('Hey there! Welcome to this socket');
 
+    // Send initial location data
     const initialLocation = {
         latitude: 21.1458, 
         longitude: 79.0882,
@@ -22,10 +23,14 @@ wss.on('connection', function connection(ws) {
     };
     ws.send(JSON.stringify(initialLocation));
 
-    ws.on('message', function incoming(message) {
+    ws.on('message', (message) =>{
         console.log(`Received message is ${message}`);
         ws.send(`Got your message which is: ${message}`);
     });
+    ws.on('close',()=>{
+        ws.send('Your connection is closed');
+        console.log('connection closed')
+    })
 });
 
 setInterval(() => {
@@ -37,11 +42,12 @@ setInterval(() => {
                 longitude: 79.0882 + Math.random() * 0.1,
             };
             client.send(JSON.stringify(newLocation));
+            console.log(newLocation);
         }
     });
 }, 3000);
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-const PORT = 8080;
+const PORT = 1800;  
 server.listen(PORT, () => console.log(`Listening on port: ${PORT}`));
